@@ -1,0 +1,11 @@
+Initial release of SoulCalc.
+
+- Multi-line notepad-style calculator
+- Named variables ($name = value)
+- Line references ($1, $2, etc.)
+- Real-time expression evaluation
+- Built-in calculator keyboard
+- Percentage, power, and square root operations
+- Comments with # prefix
+- Auto-save functionality
+- Light and dark theme support

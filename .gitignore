@@ -1,0 +1,56 @@
+# Claude Code
+CLAUDE.md
+.claude_task_log.txt
+.claude/
+
+# Work directory
+work/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+local.properties
+keystore.properties
+
+# Signing keys
+*.jks
+*.keystore
+release/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# APK and bundle files
+*.apk
+*.aab
+*.ap_
+
+# Test outputs
+/captures
+
+# NDK
+.cxx/
+*.so
+
+# Kotlin
+*.kotlin_module
+
+# Proguard
+proguard/
+
+# Misc
+*.hprof
+.externalNativeBuild/

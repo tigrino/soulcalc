@@ -1,0 +1,23 @@
+SoulCalc is a notepad-style calculator that combines the simplicity of a basic calculator with the flexibility of a text editor.
+
+Features:
+
+- Multi-line calculations: Write multiple expressions, each on its own line
+- Named variables: Define variables like $price = 100 and use them in other lines
+- Line references: Reference previous results with $1, $2, etc.
+- Real-time evaluation: Results appear instantly as you type
+- Built-in calculator keyboard: Quick access to math operators
+- Percentage calculations: Use % for percentage operations (e.g., 100+10% = 110)
+- Power and square root: Support for exponents (^) and square root (sqrt)
+- Comments: Add notes with # prefix
+- Copy results: Tap any result to copy it to clipboard
+- Auto-save: Your calculations are automatically saved
+- Light and dark theme support
+
+Perfect for:
+- Quick everyday calculations
+- Shopping and budgeting
+- Unit conversions with formulas
+- Any calculation where you want to see your work
+
+SoulCalc is free, open source, and contains no ads or trackers.

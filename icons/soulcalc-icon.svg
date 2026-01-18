@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#3B82F6"/>
+  
+  <!-- Ring binder coils (left side) -->
+  <ellipse cx="100" cy="120" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  <ellipse cx="100" cy="200" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  <ellipse cx="100" cy="280" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  <ellipse cx="100" cy="360" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  
+  <!-- Notepad paper -->
+  <rect x="108" y="64" width="320" height="384" rx="16" fill="#FFFFFF"/>
+  
+  <!-- Binding holes -->
+  <circle cx="108" cy="120" r="10" fill="#3B82F6"/>
+  <circle cx="108" cy="200" r="10" fill="#3B82F6"/>
+  <circle cx="108" cy="280" r="10" fill="#3B82F6"/>
+  <circle cx="108" cy="360" r="10" fill="#3B82F6"/>
+  
+  <!-- Result column background -->
+  <rect x="320" y="64" width="108" height="384" fill="#EFF6FF"/>
+  <rect x="412" y="64" width="16" height="384" rx="0" fill="#EFF6FF"/>
+  
+  <!-- Subtle separator line -->
+  <line x1="320" y1="100" x2="320" y2="412" stroke="#DBEAFE" stroke-width="2"/>
+  
+  <!-- Row 1: 2+2 = 4 -->
+  <text x="148" y="138" font-family="ui-monospace, monospace" font-size="28" font-weight="600" fill="#64748B">2+2</text>
+  <text x="370" y="138" font-family="ui-monospace, monospace" font-size="28" font-weight="bold" fill="#3B82F6" text-anchor="middle">4</text>
+  
+  <!-- Row 2: 10×5 = 50 -->
+  <text x="148" y="198" font-family="ui-monospace, monospace" font-size="28" font-weight="600" fill="#64748B">10×5</text>
+  <text x="370" y="198" font-family="ui-monospace, monospace" font-size="28" font-weight="bold" fill="#3B82F6" text-anchor="middle">50</text>
+  
+  <!-- Row 3: 99-7 = 92 -->
+  <text x="148" y="258" font-family="ui-monospace, monospace" font-size="28" font-weight="600" fill="#64748B">99−7</text>
+  <text x="370" y="258" font-family="ui-monospace, monospace" font-size="28" font-weight="bold" fill="#3B82F6" text-anchor="middle">92</text>
+  
+  <!-- Row 4: 144÷12 = 12 -->
+  <text x="148" y="318" font-family="ui-monospace, monospace" font-size="28" font-weight="600" fill="#64748B">144÷12</text>
+  <text x="370" y="318" font-family="ui-monospace, monospace" font-size="28" font-weight="bold" fill="#3B82F6" text-anchor="middle">12</text>
+  
+  <!-- Row 5: 3^4 = 81 -->
+  <text x="148" y="378" font-family="ui-monospace, monospace" font-size="28" font-weight="600" fill="#64748B">3^4</text>
+  <text x="370" y="378" font-family="ui-monospace, monospace" font-size="28" font-weight="bold" fill="#3B82F6" text-anchor="middle">81</text>
+</svg>

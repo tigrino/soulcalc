@@ -1,0 +1,7 @@
+<!--
+  SPDX-License-Identifier: MIT
+  Copyright (c) 2026 Albert Zenkoff
+-->
+<resources>
+    <style name="Theme.SoulCalc" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

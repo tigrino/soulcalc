@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#3B82F6"/>
+  
+  <!-- Ring binder coils (left side) -->
+  <ellipse cx="100" cy="160" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  <ellipse cx="100" cy="256" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  <ellipse cx="100" cy="352" rx="20" ry="12" fill="none" stroke="#1E40AF" stroke-width="8"/>
+  
+  <!-- Notepad paper -->
+  <rect x="108" y="72" width="320" height="368" rx="16" fill="#FFFFFF"/>
+  
+  <!-- Binding holes -->
+  <circle cx="108" cy="160" r="10" fill="#3B82F6"/>
+  <circle cx="108" cy="256" r="10" fill="#3B82F6"/>
+  <circle cx="108" cy="352" r="10" fill="#3B82F6"/>
+  
+  <!-- Result column background -->
+  <rect x="310" y="72" width="118" height="368" fill="#EFF6FF"/>
+  <rect x="412" y="72" width="16" height="368" rx="0" fill="#EFF6FF"/>
+  
+  <!-- Subtle separator line -->
+  <line x1="310" y1="110" x2="310" y2="402" stroke="#DBEAFE" stroke-width="2"/>
+  
+  <!-- Row 1: 2+2 = 4 -->
+  <text x="150" y="175" font-family="ui-monospace, monospace" font-size="48" font-weight="600" fill="#64748B">2+2</text>
+  <text x="365" y="175" font-family="ui-monospace, monospace" font-size="48" font-weight="bold" fill="#3B82F6" text-anchor="middle">4</text>
+  
+  <!-- Row 2: 7×8 = 56 -->
+  <text x="150" y="271" font-family="ui-monospace, monospace" font-size="48" font-weight="600" fill="#64748B">7×8</text>
+  <text x="365" y="271" font-family="ui-monospace, monospace" font-size="48" font-weight="bold" fill="#3B82F6" text-anchor="middle">56</text>
+  
+  <!-- Row 3: 9−4 = 5 -->
+  <text x="150" y="367" font-family="ui-monospace, monospace" font-size="48" font-weight="600" fill="#64748B">9−4</text>
+  <text x="365" y="367" font-family="ui-monospace, monospace" font-size="48" font-weight="bold" fill="#3B82F6" text-anchor="middle">5</text>
+</svg>

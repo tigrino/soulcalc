@@ -1,0 +1,1 @@
+A notepad-style calculator with variables, line references, and multi-line support

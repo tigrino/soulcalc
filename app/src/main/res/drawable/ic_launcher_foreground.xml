@@ -1,0 +1,89 @@
+<!--
+  SPDX-License-Identifier: MIT
+  Copyright (c) 2026 Albert Zenkoff
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Scale and translate to fit within 66% adaptive icon safe zone -->
+    <!-- 66% of 108dp = 71.28dp, margin = 18.36dp -->
+    <!-- Scale: 71.28 / 512 = 0.139 -->
+    <group
+        android:scaleX="0.139"
+        android:scaleY="0.139"
+        android:translateX="18"
+        android:translateY="18">
+
+        <!-- Ring binder coils (left side) - 3 rings -->
+        <path
+            android:pathData="M100,160 A30,18 0 1,1 100,142 A30,18 0 1,1 100,160"
+            android:strokeColor="#1E40AF"
+            android:strokeWidth="12"
+            android:fillColor="@android:color/transparent"/>
+        <path
+            android:pathData="M100,256 A30,18 0 1,1 100,238 A30,18 0 1,1 100,256"
+            android:strokeColor="#1E40AF"
+            android:strokeWidth="12"
+            android:fillColor="@android:color/transparent"/>
+        <path
+            android:pathData="M100,352 A30,18 0 1,1 100,334 A30,18 0 1,1 100,352"
+            android:strokeColor="#1E40AF"
+            android:strokeWidth="12"
+            android:fillColor="@android:color/transparent"/>
+
+        <!-- Notepad paper -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M108,72 L412,72 Q428,72 428,88 L428,424 Q428,440 412,440 L108,440 L108,72 Z"/>
+
+        <!-- Binding holes -->
+        <path
+            android:fillColor="#3B82F6"
+            android:pathData="M108,160 A15,15 0 1,1 108,159.99 Z"/>
+        <path
+            android:fillColor="#3B82F6"
+            android:pathData="M108,256 A15,15 0 1,1 108,255.99 Z"/>
+        <path
+            android:fillColor="#3B82F6"
+            android:pathData="M108,352 A15,15 0 1,1 108,351.99 Z"/>
+
+        <!-- Result column background -->
+        <path
+            android:fillColor="#EFF6FF"
+            android:pathData="M310,72 L412,72 Q428,72 428,88 L428,424 Q428,440 412,440 L310,440 Z"/>
+
+        <!-- Separator line -->
+        <path
+            android:strokeColor="#DBEAFE"
+            android:strokeWidth="2"
+            android:pathData="M310,110 L310,402"/>
+
+        <!-- Row 1: expression and result bars -->
+        <path
+            android:fillColor="#64748B"
+            android:pathData="M145,145 L255,145 L255,175 L145,175 Z"/>
+        <path
+            android:fillColor="#3B82F6"
+            android:pathData="M340,145 L390,145 L390,175 L340,175 Z"/>
+
+        <!-- Row 2 -->
+        <path
+            android:fillColor="#64748B"
+            android:pathData="M145,241 L255,241 L255,271 L145,271 Z"/>
+        <path
+            android:fillColor="#3B82F6"
+            android:pathData="M330,241 L400,241 L400,271 L330,271 Z"/>
+
+        <!-- Row 3 -->
+        <path
+            android:fillColor="#64748B"
+            android:pathData="M145,337 L255,337 L255,367 L145,367 Z"/>
+        <path
+            android:fillColor="#3B82F6"
+            android:pathData="M340,337 L390,337 L390,367 L340,367 Z"/>
+
+    </group>
+</vector>
