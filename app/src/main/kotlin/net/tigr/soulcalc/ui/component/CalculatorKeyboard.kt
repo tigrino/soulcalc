@@ -47,7 +47,7 @@ import net.tigr.soulcalc.R
  *  7    8   9   ÷   (
  *  4    5   6   ×   )
  *  1    2   3   −   ⏎ (tall)
- *  0    .   %   +   ⏎ (tall)
+ *  %    0   .   +   ⏎ (tall)
  * ```
  *
  * Long-press ^ for sqrt(
@@ -97,9 +97,9 @@ fun CalculatorKeyboard(
             KeyDef("−", KeyType.OPERATOR)
         ),
         listOf(
+            KeyDef("%", KeyType.OPERATOR),
             KeyDef("0", KeyType.DIGIT),
             KeyDef(".", KeyType.DIGIT),
-            KeyDef("%", KeyType.OPERATOR),
             KeyDef("+", KeyType.OPERATOR)
         )
     )
