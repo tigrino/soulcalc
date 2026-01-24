@@ -1,0 +1,8 @@
+Version 1.1.0
+
+- Improved keyboard layout with larger Enter button
+- Power key (^) now supports long-press for square root
+- Backspace moved to top row for easier access
+- Backspace deletes sqrt() as a single unit
+- Enter button color updated for better visibility
+- Added built-in Guide with usage instructions

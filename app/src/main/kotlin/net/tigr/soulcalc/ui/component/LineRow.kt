@@ -157,9 +157,14 @@ fun LineRow(
                 val result = text.substring(0, selStart) + text.substring(selEnd)
                 result to selStart
             } else if (selStart > 0) {
-                // No selection, cursor not at beginning - delete character before cursor
-                val result = text.substring(0, selStart - 1) + text.substring(selStart)
-                result to (selStart - 1)
+                // No selection, cursor not at beginning - check for function to delete as unit
+                val textBefore = text.substring(0, selStart)
+                val deleteCount = when {
+                    textBefore.endsWith("sqrt(") -> 5
+                    else -> 1
+                }
+                val result = text.substring(0, selStart - deleteCount) + text.substring(selStart)
+                result to (selStart - deleteCount)
             } else if (text.isEmpty()) {
                 // Empty line with cursor at beginning - delete the line
                 onDeleteLine()

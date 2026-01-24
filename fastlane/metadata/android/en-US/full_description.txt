@@ -13,6 +13,7 @@ Features:
 - Copy results: Tap any result to copy it to clipboard
 - Auto-save: Your calculations are automatically saved
 - Light and dark theme support
+- Built-in help guide
 
 Perfect for:
 - Quick everyday calculations

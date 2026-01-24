@@ -151,21 +151,23 @@ Line references can only point to lines above, preventing circular dependencies 
 
 ## Keyboard Specification
 
-### Layout (5×5 Grid)
+### Layout
 
 ```
 ┌─────┬─────┬─────┬─────┬─────┐
-│sqrt │  ^  │  #  │  $  │  =  │
+│  ^  │  #  │  $  │  =  │  ⌫  │
 ├─────┼─────┼─────┼─────┼─────┤
 │  7  │  8  │  9  │  ÷  │  (  │
 ├─────┼─────┼─────┼─────┼─────┤
 │  4  │  5  │  6  │  ×  │  )  │
 ├─────┼─────┼─────┼─────┼─────┤
-│  1  │  2  │  3  │  −  │  ⌫  │
-├─────┼─────┼─────┼─────┼─────┤
-│  0  │  .  │  %  │  +  │  ⏎  │
+│  1  │  2  │  3  │  −  │     │
+├─────┼─────┼─────┼─────┤  ⏎  │
+│  0  │  .  │  %  │  +  │     │
 └─────┴─────┴─────┴─────┴─────┘
 ```
+
+The Enter key (⏎) spans two rows for easier access.
 
 ### Key Behaviors
 
@@ -175,9 +177,8 @@ Line references can only point to lines above, preventing circular dependencies 
 | `.` | Insert decimal point | — |
 | `+ − × ÷` | Insert operator | — |
 | `%` | Insert percent | — |
-| `^` | Insert power operator | — |
+| `^` | Insert power operator | Insert `sqrt(` |
 | `( )` | Insert parenthesis | — |
-| `sqrt` | Insert `sqrt(` | — |
 | `=` | Insert assignment operator | — |
 | `⌫` | Delete character before cursor | Clear entire line |
 | `⏎` | Insert newline, return to custom keyboard | — |
@@ -323,7 +324,10 @@ app/
 │   │   ├── LineRow.kt
 │   │   ├── CalculatorKeyboard.kt
 │   │   ├── KeyboardToggle.kt
-│   │   └── VariablePicker.kt
+│   │   ├── VariablePicker.kt
+│   │   ├── GuideDialog.kt
+│   │   ├── SettingsDialog.kt
+│   │   └── AboutDialog.kt
 │   ├── viewmodel/
 │   │   └── MainViewModel.kt
 │   └── theme/
@@ -414,15 +418,15 @@ Implementation: When `%` follows a value that is itself the right operand of `+`
 │                                     │
 ├─────────────────────────────────────┤
 │ ┌─────┬─────┬─────┬─────┬─────┐    │
-│ │  7  │  8  │  9  │  ÷  │  ⌫  │    │
+│ │  ^  │  #  │  $  │  =  │  ⌫  │    │
 │ ├─────┼─────┼─────┼─────┼─────┤    │
-│ │  4  │  5  │  6  │  ×  │  (  │    │
+│ │  7  │  8  │  9  │  ÷  │  (  │    │
 │ ├─────┼─────┼─────┼─────┼─────┤    │  ← Custom keyboard
-│ │  1  │  2  │  3  │  −  │  )  │    │
+│ │  4  │  5  │  6  │  ×  │  )  │    │
 │ ├─────┼─────┼─────┼─────┼─────┤    │
-│ │  0  │  .  │  %  │  +  │  ^  │    │
-│ ├─────┼─────┼─────┼─────┼─────┤    │
-│ │  $  │  #  │sqrt │  =  │  ⏎  │ ⌨  │  ← Toggle button
+│ │  1  │  2  │  3  │  −  │     │    │
+│ ├─────┼─────┼─────┼─────┤  ⏎  │ ⌨  │  ← Toggle button
+│ │  0  │  .  │  %  │  +  │     │    │
 │ └─────┴─────┴─────┴─────┴─────┘    │
 └─────────────────────────────────────┘
 ```
@@ -446,11 +450,12 @@ Implementation: When `%` follows a value that is itself the right operand of `+`
 **Overflow menu (⋮)**
 - Copy all
 - Clear sheet
+- Guide
 - Settings
+- About
 
 **Settings**
 - Theme (System / Light / Dark)
-- About
 
 ---
 

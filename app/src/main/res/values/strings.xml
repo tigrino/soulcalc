@@ -19,6 +19,17 @@
     <string name="dialog_tap_to_insert">Tap to insert:</string>
     <string name="button_cancel">Cancel</string>
 
+    <!-- Guide dialog -->
+    <string name="menu_guide">Guide</string>
+    <string name="guide_basics_title">Basics</string>
+    <string name="guide_basics_content">Type mathematical expressions and see results instantly. Use +, −, ×, ÷ for basic operations, ^ for power, and % for percentage.</string>
+    <string name="guide_variables_title">Variables</string>
+    <string name="guide_variables_content">Define variables with $name = value\nExample: $tax = 0.08\nUse them in expressions: 100 × $tax</string>
+    <string name="guide_references_title">Line References</string>
+    <string name="guide_references_content">Reference previous results with $1, $2, etc.\nExample: If line 1 equals 50, then $1 × 2 = 100</string>
+    <string name="guide_keyboard_title">Keyboard</string>
+    <string name="guide_keyboard_content">^ — Power (hold for √ square root)\n$ — Variables (hold for picker)\n# — Start a comment\n⌫ — Backspace (hold to clear line)\n⏎ — New line</string>
+
     <!-- About dialog -->
     <string name="menu_about">About</string>
     <string name="about_version">Version %1$s</string>
@@ -46,13 +57,12 @@
     <string name="key_subtract">Minus</string>
     <string name="key_multiply">Multiply</string>
     <string name="key_divide">Divide</string>
-    <string name="key_power">Power</string>
+    <string name="key_power_sqrt">Power, long press for square root</string>
     <string name="key_percent">Percent</string>
     <string name="key_equals">Equals</string>
     <string name="key_open_paren">Open parenthesis</string>
     <string name="key_close_paren">Close parenthesis</string>
     <string name="key_decimal">Decimal point</string>
-    <string name="key_sqrt">Square root</string>
     <string name="key_backspace">Backspace, long press to clear line</string>
     <string name="key_enter">New line</string>
     <string name="key_dollar">Dollar sign, long press for variable picker</string>

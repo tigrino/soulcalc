@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.HelpOutline
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
@@ -47,6 +48,7 @@ import androidx.compose.ui.res.stringResource
 import net.tigr.soulcalc.R
 import net.tigr.soulcalc.data.preferences.ThemeMode
 import net.tigr.soulcalc.ui.component.AboutDialog
+import net.tigr.soulcalc.ui.component.GuideDialog
 import net.tigr.soulcalc.ui.component.CalculatorKeyboard
 import net.tigr.soulcalc.ui.component.KeyboardToggle
 import net.tigr.soulcalc.ui.component.LineRow
@@ -71,6 +73,7 @@ fun MainScreen(
     val listState = rememberLazyListState()
     var showMenu by remember { mutableStateOf(false) }
     var showSettings by remember { mutableStateOf(false) }
+    var showGuide by remember { mutableStateOf(false) }
     var showAbout by remember { mutableStateOf(false) }
 
 
@@ -104,6 +107,12 @@ fun MainScreen(
             currentThemeMode = currentThemeMode,
             onThemeModeChanged = onThemeModeChanged,
             onDismiss = { showSettings = false }
+        )
+    }
+
+    if (showGuide) {
+        GuideDialog(
+            onDismiss = { showGuide = false }
         )
     }
 
@@ -169,6 +178,19 @@ fun MainScreen(
                             }
                         )
                         HorizontalDivider()
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.menu_guide)) },
+                            onClick = {
+                                showMenu = false
+                                showGuide = true
+                            },
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.HelpOutline,
+                                    contentDescription = null
+                                )
+                            }
+                        )
                         DropdownMenuItem(
                             text = { Text(stringResource(R.string.menu_settings)) },
                             onClick = {
