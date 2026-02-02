@@ -8,82 +8,115 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Scale and translate to fit within 66% adaptive icon safe zone -->
-    <!-- 66% of 108dp = 71.28dp, margin = 18.36dp -->
-    <!-- Scale: 71.28 / 512 = 0.139 -->
-    <group
-        android:scaleX="0.139"
-        android:scaleY="0.139"
-        android:translateX="18"
-        android:translateY="18">
+    <!-- Adaptive icon safe zone: 66% = ~72dp centered, margins ~18dp each side -->
 
-        <!-- Ring binder coils (left side) - 3 rings -->
-        <path
-            android:pathData="M100,160 A30,18 0 1,1 100,142 A30,18 0 1,1 100,160"
-            android:strokeColor="#1E40AF"
-            android:strokeWidth="12"
-            android:fillColor="@android:color/transparent"/>
-        <path
-            android:pathData="M100,256 A30,18 0 1,1 100,238 A30,18 0 1,1 100,256"
-            android:strokeColor="#1E40AF"
-            android:strokeWidth="12"
-            android:fillColor="@android:color/transparent"/>
-        <path
-            android:pathData="M100,352 A30,18 0 1,1 100,334 A30,18 0 1,1 100,352"
-            android:strokeColor="#1E40AF"
-            android:strokeWidth="12"
-            android:fillColor="@android:color/transparent"/>
+    <!-- Notepad paper with slight shadow effect -->
+    <path
+        android:fillColor="#E8E8E8"
+        android:pathData="M24,28 L86,28 Q88,28 88,30 L88,82 Q88,84 86,84 L24,84 Q22,84 22,82 L22,30 Q22,28 24,28 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,26 L84,26 Q86,26 86,28 L86,80 Q86,82 84,82 L22,82 Q20,82 20,80 L20,28 Q20,26 22,26 Z"/>
 
-        <!-- Notepad paper -->
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M108,72 L412,72 Q428,72 428,88 L428,424 Q428,440 412,440 L108,440 L108,72 Z"/>
+    <!-- Spiral binding at top - 5 coils -->
+    <path
+        android:fillColor="#1E3A5F"
+        android:pathData="M30,22 Q30,18 34,18 Q38,18 38,22 L38,30 Q38,34 34,34 Q30,34 30,30 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,20 Q32,17 34,17 Q36,17 36,20 L36,28 Q36,31 34,31 Q32,31 32,28 Z"/>
 
-        <!-- Binding holes -->
-        <path
-            android:fillColor="#3B82F6"
-            android:pathData="M108,160 A15,15 0 1,1 108,159.99 Z"/>
-        <path
-            android:fillColor="#3B82F6"
-            android:pathData="M108,256 A15,15 0 1,1 108,255.99 Z"/>
-        <path
-            android:fillColor="#3B82F6"
-            android:pathData="M108,352 A15,15 0 1,1 108,351.99 Z"/>
+    <path
+        android:fillColor="#1E3A5F"
+        android:pathData="M44,22 Q44,18 48,18 Q52,18 52,22 L52,30 Q52,34 48,34 Q44,34 44,30 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M46,20 Q46,17 48,17 Q50,17 50,20 L50,28 Q50,31 48,31 Q46,31 46,28 Z"/>
 
-        <!-- Result column background -->
-        <path
-            android:fillColor="#EFF6FF"
-            android:pathData="M310,72 L412,72 Q428,72 428,88 L428,424 Q428,440 412,440 L310,440 Z"/>
+    <path
+        android:fillColor="#1E3A5F"
+        android:pathData="M58,22 Q58,18 62,18 Q66,18 66,22 L66,30 Q66,34 62,34 Q58,34 58,30 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,20 Q60,17 62,17 Q64,17 64,20 L64,28 Q64,31 62,31 Q60,31 60,28 Z"/>
 
-        <!-- Separator line -->
-        <path
-            android:strokeColor="#DBEAFE"
-            android:strokeWidth="2"
-            android:pathData="M310,110 L310,402"/>
+    <path
+        android:fillColor="#1E3A5F"
+        android:pathData="M72,22 Q72,18 76,18 Q80,18 80,22 L80,30 Q80,34 76,34 Q72,34 72,30 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M74,20 Q74,17 76,17 Q78,17 78,20 L78,28 Q78,31 76,31 Q74,31 74,28 Z"/>
 
-        <!-- Row 1: expression and result bars -->
-        <path
-            android:fillColor="#64748B"
-            android:pathData="M145,145 L255,145 L255,175 L145,175 Z"/>
-        <path
-            android:fillColor="#3B82F6"
-            android:pathData="M340,145 L390,145 L390,175 L340,175 Z"/>
+    <!-- Horizontal ruled lines on notepad -->
+    <path
+        android:strokeColor="#DBEAFE"
+        android:strokeWidth="0.8"
+        android:pathData="M25,42 L81,42"/>
+    <path
+        android:strokeColor="#DBEAFE"
+        android:strokeWidth="0.8"
+        android:pathData="M25,52 L81,52"/>
+    <path
+        android:strokeColor="#DBEAFE"
+        android:strokeWidth="0.8"
+        android:pathData="M25,62 L81,62"/>
+    <path
+        android:strokeColor="#DBEAFE"
+        android:strokeWidth="0.8"
+        android:pathData="M25,72 L81,72"/>
 
-        <!-- Row 2 -->
-        <path
-            android:fillColor="#64748B"
-            android:pathData="M145,241 L255,241 L255,271 L145,271 Z"/>
-        <path
-            android:fillColor="#3B82F6"
-            android:pathData="M330,241 L400,241 L400,271 L330,271 Z"/>
+    <!-- Calculator display area (subtle) -->
+    <path
+        android:fillColor="#F0F9FF"
+        android:pathData="M24,36 L82,36 L82,48 L24,48 Z"/>
 
-        <!-- Row 3 -->
-        <path
-            android:fillColor="#64748B"
-            android:pathData="M145,337 L255,337 L255,367 L145,367 Z"/>
-        <path
-            android:fillColor="#3B82F6"
-            android:pathData="M340,337 L390,337 L390,367 L340,367 Z"/>
+    <!-- "2+2" expression text (stylized) -->
+    <!-- Number 2 -->
+    <path
+        android:fillColor="#1E40AF"
+        android:pathData="M28,39 L32,39 Q34,39 34,41 L34,42 Q34,44 32,44 L30,44 L30,45 L34,45 L34,47 L28,47 L28,44 Q28,42 30,42 L32,42 L32,41 L28,41 Z"/>
+    <!-- Plus sign -->
+    <path
+        android:fillColor="#1E40AF"
+        android:pathData="M38,42 L40,42 L40,40 L42,40 L42,42 L44,42 L44,44 L42,44 L42,46 L40,46 L40,44 L38,44 Z"/>
+    <!-- Number 2 -->
+    <path
+        android:fillColor="#1E40AF"
+        android:pathData="M48,39 L52,39 Q54,39 54,41 L54,42 Q54,44 52,44 L50,44 L50,45 L54,45 L54,47 L48,47 L48,44 Q48,42 50,42 L52,42 L52,41 L48,41 Z"/>
 
-    </group>
+    <!-- Equals sign -->
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M58,41 L64,41 L64,43 L58,43 Z M58,44 L64,44 L64,46 L58,46 Z"/>
+
+    <!-- Result "4" in bold/prominent style -->
+    <path
+        android:fillColor="#059669"
+        android:pathData="M68,39 L70,39 L70,42 L74,42 L74,39 L76,39 L76,47 L74,47 L74,44 L68,44 Z"/>
+
+    <!-- More calculation rows (simplified bars) -->
+    <!-- Row 2 -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M26,55 L50,55 L50,59 L26,59 Z"/>
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M66,55 L80,55 L80,59 L66,59 Z"/>
+
+    <!-- Row 3 -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M26,65 L44,65 L44,69 L26,69 Z"/>
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M62,65 L80,65 L80,69 L62,69 Z"/>
+
+    <!-- Row 4 -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M26,75 L54,75 L54,79 L26,79 Z"/>
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M68,75 L80,75 L80,79 L68,79 Z"/>
+
 </vector>

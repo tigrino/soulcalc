@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <defs>
+        <clipPath id="circle">
+            <circle cx="256" cy="256" r="256"/>
+        </clipPath>
+    </defs>
+
+    <g clip-path="url(#circle)">
+        <!-- Scale up from 108 to 512: factor = 4.74 -->
+        <g transform="scale(4.74)">
+            <!-- Blue background -->
+            <rect width="108" height="108" fill="#3B82F6"/>
+
+            <!-- Notepad paper with slight shadow effect -->
+            <path fill="#E8E8E8" d="M24,28 L86,28 Q88,28 88,30 L88,82 Q88,84 86,84 L24,84 Q22,84 22,82 L22,30 Q22,28 24,28 Z"/>
+            <path fill="#FFFFFF" d="M22,26 L84,26 Q86,26 86,28 L86,80 Q86,82 84,82 L22,82 Q20,82 20,80 L20,28 Q20,26 22,26 Z"/>
+
+            <!-- Spiral binding at top - 4 coils -->
+            <path fill="#1E3A5F" d="M30,22 Q30,18 34,18 Q38,18 38,22 L38,30 Q38,34 34,34 Q30,34 30,30 Z"/>
+            <path fill="#FFFFFF" d="M32,20 Q32,17 34,17 Q36,17 36,20 L36,28 Q36,31 34,31 Q32,31 32,28 Z"/>
+
+            <path fill="#1E3A5F" d="M44,22 Q44,18 48,18 Q52,18 52,22 L52,30 Q52,34 48,34 Q44,34 44,30 Z"/>
+            <path fill="#FFFFFF" d="M46,20 Q46,17 48,17 Q50,17 50,20 L50,28 Q50,31 48,31 Q46,31 46,28 Z"/>
+
+            <path fill="#1E3A5F" d="M58,22 Q58,18 62,18 Q66,18 66,22 L66,30 Q66,34 62,34 Q58,34 58,30 Z"/>
+            <path fill="#FFFFFF" d="M60,20 Q60,17 62,17 Q64,17 64,20 L64,28 Q64,31 62,31 Q60,31 60,28 Z"/>
+
+            <path fill="#1E3A5F" d="M72,22 Q72,18 76,18 Q80,18 80,22 L80,30 Q80,34 76,34 Q72,34 72,30 Z"/>
+            <path fill="#FFFFFF" d="M74,20 Q74,17 76,17 Q78,17 78,20 L78,28 Q78,31 76,31 Q74,31 74,28 Z"/>
+
+            <!-- Horizontal ruled lines on notepad -->
+            <path stroke="#DBEAFE" stroke-width="0.8" fill="none" d="M25,42 L81,42"/>
+            <path stroke="#DBEAFE" stroke-width="0.8" fill="none" d="M25,52 L81,52"/>
+            <path stroke="#DBEAFE" stroke-width="0.8" fill="none" d="M25,62 L81,62"/>
+            <path stroke="#DBEAFE" stroke-width="0.8" fill="none" d="M25,72 L81,72"/>
+
+            <!-- Calculator display area (subtle) -->
+            <path fill="#F0F9FF" d="M24,36 L82,36 L82,48 L24,48 Z"/>
+
+            <!-- "2+2" expression text (stylized) -->
+            <path fill="#1E40AF" d="M28,39 L32,39 Q34,39 34,41 L34,42 Q34,44 32,44 L30,44 L30,45 L34,45 L34,47 L28,47 L28,44 Q28,42 30,42 L32,42 L32,41 L28,41 Z"/>
+            <path fill="#1E40AF" d="M38,42 L40,42 L40,40 L42,40 L42,42 L44,42 L44,44 L42,44 L42,46 L40,46 L40,44 L38,44 Z"/>
+            <path fill="#1E40AF" d="M48,39 L52,39 Q54,39 54,41 L54,42 Q54,44 52,44 L50,44 L50,45 L54,45 L54,47 L48,47 L48,44 Q48,42 50,42 L52,42 L52,41 L48,41 Z"/>
+
+            <!-- Equals sign -->
+            <path fill="#3B82F6" d="M58,41 L64,41 L64,43 L58,43 Z M58,44 L64,44 L64,46 L58,46 Z"/>
+
+            <!-- Result "4" -->
+            <path fill="#059669" d="M68,39 L70,39 L70,42 L74,42 L74,39 L76,39 L76,47 L74,47 L74,44 L68,44 Z"/>
+
+            <!-- More calculation rows -->
+            <path fill="#94A3B8" d="M26,55 L50,55 L50,59 L26,59 Z"/>
+            <path fill="#10B981" d="M66,55 L80,55 L80,59 L66,59 Z"/>
+
+            <path fill="#94A3B8" d="M26,65 L44,65 L44,69 L26,69 Z"/>
+            <path fill="#10B981" d="M62,65 L80,65 L80,69 L62,69 Z"/>
+
+            <path fill="#94A3B8" d="M26,75 L54,75 L54,79 L26,79 Z"/>
+            <path fill="#10B981" d="M68,75 L80,75 L80,79 L68,79 Z"/>
+        </g>
+    </g>
+
+    <!-- Circle outline for visibility -->
+    <circle cx="256" cy="256" r="254" fill="none" stroke="#1E40AF" stroke-width="4"/>
+</svg>
