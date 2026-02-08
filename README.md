@@ -2,7 +2,7 @@
 
 ## Overview
 
-SoulCalc is an open-source notepad-style calculator for Android. Users type mathematical expressions line by line, and results appear instantly in a column on the right. The app supports variables, line references, and persistent history.
+Scribble On Unlimited Lines Calculator (SoulCalc) is an open-source notepad-style calculator for Android. Users type mathematical expressions line by line, and results appear instantly in a column on the right. The app supports variables, line references, and persistent history.
 
 ## Author
 
