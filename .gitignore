@@ -54,3 +54,11 @@ proguard/
 # Misc
 *.hprof
 .externalNativeBuild/
+
+# Xcode / iOS
+ios/.build/
+ios/.swiftpm/
+ios/DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint

@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000001 /* SoulCalcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000001; };
+		A10000002 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000002; };
+		A10000003 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000003; };
+		A10000004 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000004; };
+		A10000005 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000005; };
+		A10000006 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000006; };
+		A10000007 /* AstNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000007; };
+		A10000008 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000008; };
+		A10000009 /* LineClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000009; };
+		A10000010 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010; };
+		A10000011 /* SheetEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000011; };
+		A10000012 /* SheetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012; };
+		A10000013 /* ThemePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000013; };
+		A10000014 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000014; };
+		A10000015 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000015; };
+		A10000016 /* LineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000016; };
+		A10000017 /* CalculatorKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000017; };
+		A10000018 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000018; };
+		A10000019 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000019; };
+		A10000020 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020; };
+		A10000021 /* VariablePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000021; };
+		A10000022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000022; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000001 /* SoulCalcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulCalcApp.swift; sourceTree = "<group>"; };
+		A20000002 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		A20000003 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A20000004 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
+		A20000005 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		A20000006 /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		A20000007 /* AstNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstNode.swift; sourceTree = "<group>"; };
+		A20000008 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		A20000009 /* LineClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineClassifier.swift; sourceTree = "<group>"; };
+		A20000010 /* Evaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		A20000011 /* SheetEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetEngine.swift; sourceTree = "<group>"; };
+		A20000012 /* SheetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetStore.swift; sourceTree = "<group>"; };
+		A20000013 /* ThemePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreferences.swift; sourceTree = "<group>"; };
+		A20000014 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		A20000015 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		A20000016 /* LineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRow.swift; sourceTree = "<group>"; };
+		A20000017 /* CalculatorKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorKeyboard.swift; sourceTree = "<group>"; };
+		A20000018 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		A20000019 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A20000020 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		A20000021 /* VariablePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablePickerView.swift; sourceTree = "<group>"; };
+		A20000022 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A30000001 /* SoulCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoulCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A50000001 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A50000002 /* SoulCalc */,
+				A50000099 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A50000099 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A30000001 /* SoulCalc.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A50000002 /* SoulCalc */ = {
+			isa = PBXGroup;
+			children = (
+				A20000001 /* SoulCalcApp.swift */,
+				A50000003 /* Domain */,
+				A50000007 /* Data */,
+				A50000008 /* UI */,
+				A20000022 /* Assets.xcassets */,
+			);
+			path = SoulCalc;
+			sourceTree = "<group>";
+		};
+		A50000003 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A50000004 /* Model */,
+				A50000005 /* Parser */,
+				A50000006 /* Evaluator */,
+				A5000006A /* Engine */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A50000004 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A20000002 /* Line.swift */,
+				A20000003 /* Result.swift */,
+				A20000004 /* Scope.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A50000005 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				A20000005 /* Token.swift */,
+				A20000006 /* Lexer.swift */,
+				A20000007 /* AstNode.swift */,
+				A20000008 /* Parser.swift */,
+				A20000009 /* LineClassifier.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		A50000006 /* Evaluator */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010 /* Evaluator.swift */,
+			);
+			path = Evaluator;
+			sourceTree = "<group>";
+		};
+		A5000006A /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A20000011 /* SheetEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		A50000007 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A20000012 /* SheetStore.swift */,
+				A20000013 /* ThemePreferences.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A50000008 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A50000009 /* ViewModel */,
+				A5000000A /* Screen */,
+				A5000000B /* Component */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A50000009 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A20000014 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A5000000A /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A20000015 /* MainScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		A5000000B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				A20000016 /* LineRow.swift */,
+				A20000017 /* CalculatorKeyboard.swift */,
+				A20000018 /* GuideView.swift */,
+				A20000019 /* SettingsView.swift */,
+				A20000020 /* AboutView.swift */,
+				A20000021 /* VariablePickerView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A60000001 /* SoulCalc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80000001 /* Build configuration list for PBXNativeTarget "SoulCalc" */;
+			buildPhases = (
+				A70000001 /* Sources */,
+				A40000001 /* Frameworks */,
+				A70000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoulCalc;
+			productName = SoulCalc;
+			productReference = A30000001 /* SoulCalc.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A90000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					A60000001 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = A80000003 /* Build configuration list for PBXProject "SoulCalc" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A50000001;
+			productRefGroup = A50000099 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A60000001 /* SoulCalc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A70000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000022 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A70000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000001 /* SoulCalcApp.swift in Sources */,
+				A10000002 /* Line.swift in Sources */,
+				A10000003 /* Result.swift in Sources */,
+				A10000004 /* Scope.swift in Sources */,
+				A10000005 /* Token.swift in Sources */,
+				A10000006 /* Lexer.swift in Sources */,
+				A10000007 /* AstNode.swift in Sources */,
+				A10000008 /* Parser.swift in Sources */,
+				A10000009 /* LineClassifier.swift in Sources */,
+				A10000010 /* Evaluator.swift in Sources */,
+				A10000011 /* SheetEngine.swift in Sources */,
+				A10000012 /* SheetStore.swift in Sources */,
+				A10000013 /* ThemePreferences.swift in Sources */,
+				A10000014 /* MainViewModel.swift in Sources */,
+				A10000015 /* MainScreen.swift in Sources */,
+				A10000016 /* LineRow.swift in Sources */,
+				A10000017 /* CalculatorKeyboard.swift in Sources */,
+				A10000018 /* GuideView.swift in Sources */,
+				A10000019 /* SettingsView.swift in Sources */,
+				A10000020 /* AboutView.swift in Sources */,
+				A10000021 /* VariablePickerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA0000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA0000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA0000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SoulCalc;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.tigr.soulcalc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA0000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SoulCalc;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.tigr.soulcalc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80000001 /* Build configuration list for PBXNativeTarget "SoulCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000003 /* Debug */,
+				AA0000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A80000003 /* Build configuration list for PBXProject "SoulCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000001 /* Debug */,
+				AA0000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = A90000001 /* Project object */;
+}
