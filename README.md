@@ -1,4 +1,4 @@
-# SoulCalc — Notepad Calculator for Android
+# SoulCalc — Notepad Calculator for Android and iOS
 
 ## Overview
 
