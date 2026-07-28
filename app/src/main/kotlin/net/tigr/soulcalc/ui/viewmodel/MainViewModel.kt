@@ -53,14 +53,17 @@ class MainViewModel(
         viewModelScope.launch {
             val sheet = repository.loadOrCreateSheet()
             currentSheetId = sheet.id
-            val inputs = sheet.lines.map { it.input }
-            val lines = engine.evaluate(inputs.ifEmpty { listOf("") })
+            val savedInputs = sheet.lines.map { it.input }
+            val lines = engine.evaluate(ensureTrailingBlankLine(savedInputs))
             val uiLines = lines.map { it.toUiModel() }
-            val restoredFocusIndex = sheet.focusedLineIndex.coerceIn(0, lines.size.coerceAtLeast(1) - 1)
-            // Single atomic update for lines and focus
+            // Single atomic update for lines and focus. A cursor left in the
+            // middle of the sheet is restored where it was, which is useful. A
+            // cursor left at the end moves down to the free line below the
+            // calculations instead of sitting at the end of the last one, where
+            // typing would silently extend a finished calculation.
             _uiState.update { it.copy(
                 lines = uiLines,
-                focusedLineIndex = restoredFocusIndex
+                focusedLineIndex = restoredFocusIndex(sheet.focusedLineIndex, savedInputs, uiLines.size)
             )}
         }
     }
@@ -368,4 +371,38 @@ class MainViewModel(
             throw IllegalArgumentException("Unknown ViewModel class")
         }
     }
+}
+
+/**
+ * Guarantees the restored sheet ends with a free line to type on.
+ *
+ * A sheet saved with content on its last line would otherwise reopen with the
+ * caret sitting in a finished calculation, so the first keystroke silently
+ * edits it. An empty sheet becomes a single blank line.
+ */
+internal fun ensureTrailingBlankLine(inputs: List<String>): List<String> =
+    if (inputs.isNotEmpty() && inputs.last().isBlank()) inputs else inputs + ""
+
+/**
+ * Works out where the cursor belongs when a sheet is reopened.
+ *
+ * A cursor saved in the middle of the sheet is restored exactly, so returning to
+ * a calculation being edited works. A cursor saved on the last line means the
+ * user was at the end of the sheet; it moves to the free line below, which is
+ * either the blank line that was already there or the one
+ * [ensureTrailingBlankLine] just added. Otherwise the first keystroke would
+ * extend the last finished calculation.
+ *
+ * @param savedIndex the focused line index as persisted
+ * @param savedInputs the line inputs as persisted, before a blank line is added
+ * @param restoredLineCount the number of lines after adding any blank line
+ */
+internal fun restoredFocusIndex(
+    savedIndex: Int,
+    savedInputs: List<String>,
+    restoredLineCount: Int
+): Int = if (savedIndex >= savedInputs.size - 1) {
+    (restoredLineCount - 1).coerceAtLeast(0)
+} else {
+    savedIndex.coerceAtLeast(0)
 }

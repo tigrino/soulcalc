@@ -98,6 +98,8 @@ The current sheet is saved automatically after each change. No manual save actio
 **FR-15: Survive Restart**
 On app launch, the sheet is restored exactly as it was left, including cursor position.
 
+A cursor left at the end of the sheet is placed on the free line below the calculations, added if the sheet did not already end in one, rather than at the end of the last calculation where the first keystroke would silently extend it.
+
 ### UI/UX
 
 **FR-17: Custom Keyboard**

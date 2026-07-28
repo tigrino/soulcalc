@@ -68,11 +68,46 @@ class MainViewModel: ObservableObject {
             return
         }
 
-        let lines = engine.evaluate(data.lines)
+        let savedInputs = data.lines
+        let lines = engine.evaluate(MainViewModel.ensureTrailingBlankLine(savedInputs))
         let uiLines = lines.map { $0.toUiModel() }
-        let restoredFocus = max(0, min(data.focusedLineIndex, lines.count - 1))
         state.lines = uiLines
-        state.focusedLineIndex = restoredFocus
+        state.focusedLineIndex = MainViewModel.restoredFocusIndex(
+            savedIndex: data.focusedLineIndex,
+            savedInputs: savedInputs,
+            restoredLineCount: uiLines.count
+        )
+    }
+
+    /// Works out where the cursor belongs when a sheet is reopened.
+    ///
+    /// A cursor saved in the middle of the sheet is restored exactly, so
+    /// returning to a calculation being edited works. A cursor saved on the last
+    /// line means the user was at the end of the sheet; it moves to the free line
+    /// below, which is either the blank line that was already there or the one
+    /// `ensureTrailingBlankLine` just added. Otherwise the first keystroke would
+    /// extend the last finished calculation.
+    static func restoredFocusIndex(
+        savedIndex: Int,
+        savedInputs: [String],
+        restoredLineCount: Int
+    ) -> Int {
+        if savedIndex >= savedInputs.count - 1 {
+            return max(0, restoredLineCount - 1)
+        }
+        return max(0, savedIndex)
+    }
+
+    /// Guarantees the restored sheet ends with a free line to type on.
+    ///
+    /// A sheet saved with content on its last line would otherwise reopen with
+    /// the caret sitting in a finished calculation, so the first keystroke
+    /// silently edits it. An empty sheet becomes a single blank line.
+    static func ensureTrailingBlankLine(_ inputs: [String]) -> [String] {
+        if let last = inputs.last, last.trimmingCharacters(in: .whitespaces).isEmpty {
+            return inputs
+        }
+        return inputs + [""]
     }
 
     // MARK: - Event Handlers

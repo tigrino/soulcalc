@@ -221,7 +221,7 @@ class SheetRepositoryTest {
 /**
  * Fake implementation of SheetDao for testing.
  */
-private class FakeSheetDao : SheetDao {
+internal class FakeSheetDao : SheetDao {
     val sheets = mutableMapOf<String, SheetEntity>()
     val existsIds = mutableSetOf<String>()
     var mostRecent: SheetEntity? = null
@@ -268,7 +268,7 @@ private class FakeSheetDao : SheetDao {
 /**
  * Fake implementation of LineDao for testing.
  */
-private class FakeLineDao : LineDao {
+internal class FakeLineDao : LineDao {
     val linesBySheet = mutableMapOf<String, List<LineEntity>>()
     var replaceAllCalled = false
     var lastReplacedSheetId: String? = null

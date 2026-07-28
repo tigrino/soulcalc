@@ -5,17 +5,52 @@
 
 package net.tigr.soulcalc.ui.viewmodel
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
+import net.tigr.soulcalc.data.model.LineEntity
+import net.tigr.soulcalc.data.model.SheetEntity
+import net.tigr.soulcalc.data.repository.FakeLineDao
+import net.tigr.soulcalc.data.repository.FakeSheetDao
+import net.tigr.soulcalc.data.repository.SheetRepository
+import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class MainViewModelTest {
 
     private lateinit var viewModel: MainViewModel
 
     @Before
     fun setUp() {
+        // viewModelScope dispatches on Main, which the restore path in the
+        // ViewModel's init block needs.
+        Dispatchers.setMain(UnconfinedTestDispatcher())
         viewModel = MainViewModel(repository = null)
+    }
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+    }
+
+    /**
+     * Builds a repository holding one saved sheet with the given line inputs.
+     */
+    private fun repositoryWith(inputs: List<String>, savedFocusIndex: Int): SheetRepository {
+        val sheetDao = FakeSheetDao()
+        val lineDao = FakeLineDao()
+        val sheet = SheetEntity(id = "sheet-1", focusedLineIndex = savedFocusIndex)
+        sheetDao.sheets[sheet.id] = sheet
+        sheetDao.mostRecent = sheet
+        lineDao.linesBySheet[sheet.id] = inputs.mapIndexed { index, input ->
+            LineEntity(id = index.toLong() + 1, sheetId = sheet.id, position = index, input = input)
+        }
+        return SheetRepository(sheetDao, lineDao)
     }
 
     // === Initial State ===
@@ -336,6 +371,90 @@ class MainViewModelTest {
 
         val state = viewModel.uiState.value
         assertEquals(1, state.focusedLineIndex)
+    }
+
+    // === Sheet Restore ===
+
+    @Test
+    fun `cursor left at the end moves to a blank line below the calculations`() {
+        val restored = MainViewModel(repositoryWith(listOf("2 + 2", "\$x = 5"), savedFocusIndex = 1))
+
+        val state = restored.uiState.value
+        assertEquals(3, state.lines.size)
+        assertEquals("", state.lines[2].input)
+        assertEquals(2, state.focusedLineIndex)
+    }
+
+    @Test
+    fun `cursor left in the middle of the sheet is restored where it was`() {
+        val restored = MainViewModel(
+            repositoryWith(listOf("2 + 2", "\$x = 5", "10 / 4"), savedFocusIndex = 1)
+        )
+
+        val state = restored.uiState.value
+        assertEquals("\$x = 5", state.lines[1].input)
+        assertEquals(1, state.focusedLineIndex)
+    }
+
+    @Test
+    fun `cursor on an existing trailing blank line stays on it`() {
+        val restored = MainViewModel(repositoryWith(listOf("2 + 2", ""), savedFocusIndex = 1))
+
+        val state = restored.uiState.value
+        assertEquals(2, state.lines.size)
+        assertEquals(1, state.focusedLineIndex)
+    }
+
+    @Test
+    fun `cursor on the first of several lines is not dragged to the end`() {
+        val restored = MainViewModel(repositoryWith(listOf("2 + 2", ""), savedFocusIndex = 0))
+
+        val state = restored.uiState.value
+        assertEquals(2, state.lines.size)
+        assertEquals(0, state.focusedLineIndex)
+    }
+
+    @Test
+    fun `restored sheet preserves its calculations and results`() {
+        val restored = MainViewModel(repositoryWith(listOf("2 + 2"), savedFocusIndex = 0))
+
+        val state = restored.uiState.value
+        assertEquals("2 + 2", state.lines[0].input)
+        assertEquals("4", state.lines[0].resultText)
+    }
+
+    @Test
+    fun `empty saved sheet restores to a single blank line`() {
+        val restored = MainViewModel(repositoryWith(emptyList(), savedFocusIndex = 0))
+
+        val state = restored.uiState.value
+        assertEquals(1, state.lines.size)
+        assertEquals(0, state.focusedLineIndex)
+    }
+
+    @Test
+    fun `ensureTrailingBlankLine appends only when the last line has content`() {
+        assertEquals(listOf("2 + 2", ""), ensureTrailingBlankLine(listOf("2 + 2")))
+        assertEquals(listOf("2 + 2", ""), ensureTrailingBlankLine(listOf("2 + 2", "")))
+        assertEquals(listOf("2 + 2", "   "), ensureTrailingBlankLine(listOf("2 + 2", "   ")))
+        assertEquals(listOf(""), ensureTrailingBlankLine(emptyList()))
+    }
+
+    @Test
+    fun `restoredFocusIndex keeps mid-sheet positions and pushes end positions down`() {
+        val twoFilled = listOf("2 + 2", "\$x = 5")
+        // Saved on the last line, which gained a blank line below it.
+        assertEquals(2, restoredFocusIndex(1, twoFilled, restoredLineCount = 3))
+        // Saved mid-sheet - left exactly where it was.
+        assertEquals(0, restoredFocusIndex(0, twoFilled, restoredLineCount = 3))
+
+        val filledThenBlank = listOf("2 + 2", "")
+        // Already on a trailing blank line, nothing was added.
+        assertEquals(1, restoredFocusIndex(1, filledThenBlank, restoredLineCount = 2))
+
+        // Out-of-range and negative indices land somewhere sane.
+        assertEquals(2, restoredFocusIndex(99, twoFilled, restoredLineCount = 3))
+        assertEquals(0, restoredFocusIndex(-1, twoFilled, restoredLineCount = 3))
     }
 
     // === Number Formatting ===
