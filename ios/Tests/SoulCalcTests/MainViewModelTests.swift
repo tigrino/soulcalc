@@ -252,6 +252,12 @@ final class MainViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.state.lines[0].resultText, "1000000")
     }
 
+    func testLiteralBeyondDoublePrecisionShowsDigitsError() {
+        viewModel.lineTextChanged(0, "10000000000000000.1 - 10000000000000000")
+        XCTAssertEqual(viewModel.state.lines[0].resultText, "? digits")
+        XCTAssertTrue(viewModel.state.lines[0].isError)
+    }
+
     // MARK: - Insertion Consumed
 
     func testInsertionConsumed() {

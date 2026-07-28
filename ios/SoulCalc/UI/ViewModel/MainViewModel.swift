@@ -285,6 +285,9 @@ private extension Line {
         if message.hasPrefix("?") {
             return message
         }
+        if message.range(of: "too many significant digits", options: .caseInsensitive) != nil {
+            return "? digits"
+        }
         return "?"
     }
 

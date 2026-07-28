@@ -149,6 +149,9 @@ class Parser {
         switch token.type {
         case .number:
             position += 1
+            if Parser.significantDigits(token.value) > Parser.maxSignificantDigits {
+                throw ParseError("Too many significant digits: \(token.value)", token.position)
+            }
             guard let value = Double(token.value) else {
                 throw ParseError("Invalid number: \(token.value)", token.position)
             }
@@ -196,6 +199,29 @@ class Parser {
         default:
             throw ParseError("Unexpected token: \(token.value)", token.position)
         }
+    }
+
+    /// The most significant decimal digits a Double can carry unambiguously.
+    ///
+    /// A decimal of this length or shorter survives conversion to a Double and
+    /// back unchanged. Beyond it the surplus digits are silently discarded --
+    /// `10000000000000000.1` becomes exactly `10000000000000000`, so subtracting
+    /// the two yields 0 rather than 0.1. Such a literal is rejected instead of
+    /// being quietly altered.
+    static let maxSignificantDigits = 15
+
+    /// Counts the significant digits in a numeric literal.
+    ///
+    /// Leading zeros only locate the decimal point and trailing zeros only scale
+    /// the value, so neither adds precision and both are excluded. "0.00025" and
+    /// "250000" each count as two; "10000000000000000.1" counts as eighteen.
+    static func significantDigits(_ literal: String) -> Int {
+        let digits = Array(literal.filter { $0.isASCII && $0.isNumber })
+        guard let first = digits.firstIndex(where: { $0 != "0" }),
+              let last = digits.lastIndex(where: { $0 != "0" }) else {
+            return 0
+        }
+        return last - first + 1
     }
 
     /// Applies percentage context to a node.

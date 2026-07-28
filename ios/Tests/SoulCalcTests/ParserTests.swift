@@ -432,7 +432,65 @@ final class ParserTests: XCTestCase {
         }
     }
 
+    // MARK: - Precision Limits
+
+    func testLiteralBeyondDoublePrecisionIsRejected() {
+        // 10000000000000000.1 collapses to 10000000000000000 as a Double, which
+        // made "10000000000000000.1 - 10000000000000000" evaluate to 0.
+        let result = parseExpression("10000000000000000.1 - 10000000000000000")
+        assertPrecisionError(result)
+    }
+
+    func testSixteenSignificantDigitsIsRejected() {
+        assertPrecisionError(parseExpression("1234567890123456"))
+    }
+
+    func testFifteenSignificantDigitsIsAccepted() {
+        assertSuccess(parseExpression("123456789012345")) { node in
+            self.assertNumber(node, 123456789012345.0)
+        }
+    }
+
+    func testTrailingZerosDoNotCountAsSignificant() {
+        // 1e18 carries one significant digit however long the literal looks.
+        assertSuccess(parseExpression("1000000000000000000")) { node in
+            self.assertNumber(node, 1e18)
+        }
+    }
+
+    func testLeadingZerosDoNotCountAsSignificant() {
+        assertSuccess(parseExpression("0.000000000000000001")) { node in
+            self.assertNumber(node, 1e-18)
+        }
+    }
+
+    func testOrdinaryDecimalsAreUnaffected() {
+        assertSuccess(parseExpression("0.1")) { node in self.assertNumber(node, 0.1) }
+        assertSuccess(parseExpression("3.14")) { node in self.assertNumber(node, 3.14) }
+        assertSuccess(parseExpression("999999999999")) { node in
+            self.assertNumber(node, 999999999999.0)
+        }
+    }
+
+    func testSignificantDigitCounting() {
+        XCTAssertEqual(Parser.significantDigits("0.00025"), 2)
+        XCTAssertEqual(Parser.significantDigits("250000"), 2)
+        XCTAssertEqual(Parser.significantDigits("10000000000000000.1"), 18)
+        XCTAssertEqual(Parser.significantDigits("0"), 0)
+    }
+
     // MARK: - Helpers
+
+    private func assertPrecisionError(_ result: ParseResult) {
+        if case .error(let message, _) = result {
+            XCTAssertTrue(
+                message.contains("Too many significant digits"),
+                "Expected a precision error, got \(message)"
+            )
+        } else {
+            XCTFail("Expected a precision error, got \(result)")
+        }
+    }
 
     private func assertSuccess(_ result: ParseResult, _ check: (AstNode) -> Void) {
         if case .success(let node) = result {

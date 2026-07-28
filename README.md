@@ -471,6 +471,12 @@ Evaluation is debounced by 100ms to avoid excessive computation during rapid typ
 - Very large or small numbers use scientific notation
 - Trailing zeros after decimal are trimmed
 
+### Numeric Precision
+
+Values are held as IEEE-754 doubles, which carry at most 15 significant decimal digits without ambiguity. A literal with more than 15 significant digits is rejected rather than silently truncated: `10000000000000000.1` cannot be distinguished from `10000000000000000`, so accepting it would make `10000000000000000.1 - 10000000000000000` evaluate to 0.
+
+Leading and trailing zeros are not significant, so magnitude alone is not restricted — `1000000000000000000` and `0.000000000000000001` are both accepted.
+
 ### Clipboard Format
 
 **Copy single result:** Plain number (e.g., `149.97`)
@@ -490,6 +496,7 @@ $price × $qty = 149.97
 | Division by zero | `∞` |
 | Undefined variable | `? $name` |
 | Invalid line reference | `? $n` |
+| More than 15 significant digits | `? digits` |
 
 ---
 

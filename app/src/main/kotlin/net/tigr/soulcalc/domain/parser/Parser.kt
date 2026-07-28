@@ -147,6 +147,12 @@ class Parser(private val tokens: List<Token>) {
         return when (token.type) {
             TokenType.NUMBER -> {
                 position++
+                if (significantDigits(token.value) > MAX_SIGNIFICANT_DIGITS) {
+                    throw ParseException(
+                        "Too many significant digits: ${token.value}",
+                        token.position
+                    )
+                }
                 NumberNode(token.value.toDouble())
             }
 
@@ -201,6 +207,20 @@ class Parser(private val tokens: List<Token>) {
     }
 
     /**
+     * Counts the significant digits in a numeric literal.
+     *
+     * Leading zeros only locate the decimal point and trailing zeros only scale
+     * the value, so neither adds precision and both are excluded. "0.00025" and
+     * "250000" each count as two; "10000000000000000.1" counts as eighteen.
+     */
+    private fun significantDigits(literal: String): Int {
+        val digits = literal.filter { it.isDigit() }
+        val first = digits.indexOfFirst { it != '0' }
+        if (first < 0) return 0
+        return digits.indexOfLast { it != '0' } - first + 1
+    }
+
+    /**
      * Applies percentage context to a node.
      * If the node is a PercentNode without a base, applies the given base.
      */
@@ -218,6 +238,19 @@ class Parser(private val tokens: List<Token>) {
     }
 
     private class ParseException(message: String, val position: Int) : Exception(message)
+
+    companion object {
+        /**
+         * The most significant decimal digits a Double can carry unambiguously.
+         *
+         * A decimal of this length or shorter survives conversion to a Double and
+         * back unchanged. Beyond it the surplus digits are silently discarded --
+         * `10000000000000000.1` becomes exactly `10000000000000000`, so
+         * subtracting the two yields 0 rather than 0.1. Such a literal is
+         * rejected instead of being quietly altered.
+         */
+        const val MAX_SIGNIFICANT_DIGITS = 15
+    }
 }
 
 /**

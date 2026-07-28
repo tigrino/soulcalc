@@ -305,6 +305,7 @@ class MainViewModel(
                 val lineRef = Regex("\\$\\d+").find(message)?.value ?: ""
                 "? $lineRef"
             }
+            message.contains("too many significant digits", ignoreCase = true) -> "? digits"
             // Evaluator error messages that include context (e.g., "? $varName")
             message.startsWith("?") -> message
             else -> "?"

@@ -364,6 +364,17 @@ class MainViewModelTest {
         assertEquals("999999999999", state.lines[0].resultText)
     }
 
+    @Test
+    fun `literal beyond double precision shows digits error`() {
+        viewModel.onEvent(
+            MainUiEvent.LineTextChanged(0, "10000000000000000.1 - 10000000000000000")
+        )
+
+        val state = viewModel.uiState.value
+        assertEquals("? digits", state.lines[0].resultText)
+        assertTrue(state.lines[0].isError)
+    }
+
     // === Format All Lines ===
 
     @Test

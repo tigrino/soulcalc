@@ -492,6 +492,54 @@ class ParserTest {
             error.contains("Invalid line reference") || error.isNotEmpty())
     }
 
+    // === Precision Limits ===
+
+    @Test
+    fun `literal beyond double precision is rejected`() {
+        // 10000000000000000.1 collapses to 10000000000000000 as a Double, which
+        // made "10000000000000000.1 - 10000000000000000" evaluate to 0.
+        val error = parseError("10000000000000000.1 - 10000000000000000")
+        assertTrue(
+            "Expected a precision error but got: $error",
+            error.contains("Too many significant digits")
+        )
+    }
+
+    @Test
+    fun `sixteen significant digits is rejected`() {
+        val error = parseError("1234567890123456")
+        assertTrue(
+            "Expected a precision error but got: $error",
+            error.contains("Too many significant digits")
+        )
+    }
+
+    @Test
+    fun `fifteen significant digits is accepted`() {
+        val node = parseSuccess("123456789012345")
+        assertEquals(NumberNode(123456789012345.0), node)
+    }
+
+    @Test
+    fun `trailing zeros do not count as significant`() {
+        // 1e18 carries one significant digit however long the literal looks.
+        val node = parseSuccess("1000000000000000000")
+        assertEquals(NumberNode(1.0E18), node)
+    }
+
+    @Test
+    fun `leading zeros do not count as significant`() {
+        val node = parseSuccess("0.000000000000000001")
+        assertEquals(NumberNode(1.0E-18), node)
+    }
+
+    @Test
+    fun `ordinary decimals are unaffected`() {
+        assertEquals(NumberNode(0.1), parseSuccess("0.1"))
+        assertEquals(NumberNode(3.14), parseSuccess("3.14"))
+        assertEquals(NumberNode(999999999999.0), parseSuccess("999999999999"))
+    }
+
     // === Unicode Operators ===
 
     @Test
