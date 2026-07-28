@@ -3,6 +3,9 @@ CLAUDE.md
 .claude_task_log.txt
 .claude/
 
+# Local-only docs
+RELEASING.md
+
 # Work directory
 work/
 

@@ -3,7 +3,7 @@
  * Copyright (c) 2026 Albert Zenkoff
  */
 
-import java.util.Properties
+import java.io.File
 
 plugins {
     id("com.android.application")
@@ -11,11 +11,14 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
-val keystorePropertiesFile = rootProject.file("keystore.properties")
-val keystoreProperties = Properties()
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(keystorePropertiesFile.inputStream())
-}
+// Release signing credentials are shared across projects. They live in
+// ~/.gradle/gradle.properties, which Gradle merges into every build, and can be
+// overridden by environment variables for CI. The keystore itself is never kept
+// in the repository.
+val releaseKeystore: File? =
+    (providers.gradleProperty("tigrKeystoreFile").orNull ?: System.getenv("ANDROID_KEYSTORE_FILE"))
+        ?.let(::File)
+        ?.takeIf { it.exists() }
 
 android {
     namespace = "net.tigr.soulcalc"
@@ -23,11 +26,13 @@ android {
 
     signingConfigs {
         create("release") {
-            if (keystorePropertiesFile.exists()) {
-                storeFile = rootProject.file(keystoreProperties["storeFile"] as String)
-                storePassword = keystoreProperties["storePassword"] as String
-                keyAlias = keystoreProperties["keyAlias"] as String
-                keyPassword = keystoreProperties["keyPassword"] as String
+            releaseKeystore?.let { keystore ->
+                storeFile = keystore
+                storePassword = providers.gradleProperty("tigrKeystorePassword").orNull
+                    ?: System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = "soulcalc"
+                keyPassword = providers.gradleProperty("tigrKeyPassword").orNull
+                    ?: System.getenv("ANDROID_KEY_PASSWORD")
             }
         }
     }
@@ -36,8 +41,8 @@ android {
         applicationId = "net.tigr.soulcalc"
         minSdk = 24
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.2.1"
+        versionCode = 5
+        versionName = "1.2.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -53,7 +58,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = if (releaseKeystore != null) {
+                signingConfigs.getByName("release")
+            } else {
+                null
+            }
         }
     }
 
